@@ -3,10 +3,6 @@ from typing import Callable
 import cv2
 import numpy as np
 
-from draw import Draw
-from key import Key
-from mouse import Mouse
-
 
 class Window:
     def __init__(self, id: str, option=None):
@@ -39,6 +35,9 @@ class Window:
 
 
 if __name__ == "__main__":
+    from draw import Draw
+    from key import Key
+    from mouse import Mouse
 
     def null(shape=(1000, 1000, 3)):
         return np.zeros(shape, np.uint8)
@@ -46,7 +45,7 @@ if __name__ == "__main__":
     canvas = null()
 
     mouse = Mouse()
-    with Window("test") as window:
+    with Window("test", cv2.WINDOW_KEEPRATIO | cv2.WINDOW_GUI_EXPANDED) as window:
         window.set_callback(mouse)
 
         while True:
