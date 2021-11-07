@@ -33,13 +33,13 @@ class Window:
 
 
 if __name__ == "__main__":
+    import image_util
     from draw import Draw
-    from image import Image
     from key import Key
     from mouse import Mouse
 
     canvas_size = (1000, 1000)
-    canvas = Image.zeros(canvas_size)
+    canvas = image_util.zeros(canvas_size)
 
     mouse = Mouse()
 
@@ -48,6 +48,7 @@ if __name__ == "__main__":
 
         while True:
             window.imshow(canvas)
+            canvas = image_util.zeros(canvas_size)
 
             key = Key.wait_key()
             if key in [Key.q, Key.ESC]:
