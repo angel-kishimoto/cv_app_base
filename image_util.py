@@ -41,29 +41,3 @@ def vconcat(images: List[np.ndarray]) -> np.ndarray:
     max_w = max([image.shape[1] for image in images])
 
     return cv2.vconcat([padding(image, max_w=max_w) for image in images])
-
-
-if __name__ == "__main__":
-
-    red = zeros((100, 200))
-    red[:, :, 2] = 255
-
-    blue = zeros((200, 200))
-    blue[:, :, 0] = 255
-
-    a = hconcat([red, blue])
-    b = vconcat([red, blue])
-
-    c = hconcat([a, b])
-
-    cv2.namedWindow("test", cv2.WINDOW_NORMAL)
-
-    from key import Key
-
-    while True:
-        cv2.imshow("test", c)
-        key = Key.wait_key()
-
-        if key == Key.q:
-            break
-    cv2.destroyAllWindows()
