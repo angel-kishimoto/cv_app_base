@@ -4,8 +4,8 @@ import cv2
 
 
 class Key(IntEnum):
-    Q = ord("q")
-    R = ord("r")
+    q = ord("q")
+    r = ord("r")
     ESC = 27
     UNKNOWN = -1
 
